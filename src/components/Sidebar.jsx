@@ -13,7 +13,9 @@ const navItems = [
 
 export default function Sidebar({ open }) {
   return (
-    <aside className={`$${''} md:translate-x-0 ${open ? 'translate-x-0' : '-translate-x-full'} md:static fixed inset-y-0 left-0 z-30 w-72 bg-white/90 backdrop-blur border-r border-sky-100 transition-transform duration-200`}
+    <aside
+      className={`${open ? 'translate-x-0' : '-translate-x-full'} md:translate-x-0 md:static fixed inset-y-0 left-0 z-30 w-72 bg-white/90 backdrop-blur border-r border-sky-100 transition-transform duration-200`}
+      aria-label="Sidebar navigation"
     >
       <div className="h-16" />
       <nav className="px-3 py-4 space-y-1">
