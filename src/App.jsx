@@ -1,28 +1,38 @@
-import { useState } from 'react'
+import { useState } from 'react';
+import Navbar from './components/Navbar';
+import Sidebar from './components/Sidebar';
+import StatsCards from './components/StatsCards';
+import MainDashboard from './components/MainDashboard';
+import HeroHeader from './components/HeroHeader';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-blue-50 flex items-center justify-center">
-      <div className="bg-white p-8 rounded-lg shadow-lg">
-        <h1 className="text-3xl font-bold text-gray-800 mb-4">
-          Vibe Coding Platform
-        </h1>
-        <p className="text-gray-600 mb-6">
-          Your AI-powered development environment
-        </p>
-        <div className="text-center">
-          <button
-            onClick={() => setCount(count + 1)}
-            className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded"
-          >
-            Count is {count}
-          </button>
-        </div>
+    <div className="min-h-screen bg-gradient-to-b from-sky-50 via-white to-white text-sky-900">
+      <Navbar onToggleSidebar={() => setSidebarOpen((v) => !v)} />
+
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-4">
+        <HeroHeader />
       </div>
+
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-4">
+        <StatsCards />
+      </div>
+
+      <div className="relative flex">
+        <Sidebar open={sidebarOpen} />
+        <MainDashboard />
+      </div>
+
+      <footer className="mt-8 border-t border-sky-100">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-6 text-xs text-sky-600 flex items-center justify-between">
+          <p>© 2025 Sistem Informasi Sekolah — Modern UI/UX</p>
+          <p>Responsive • 16:9 friendly • High Quality</p>
+        </div>
+      </footer>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
